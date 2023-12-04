@@ -1,0 +1,46 @@
+﻿@model IEnumerable<EFAirlinesLibrary.Models.ReservationMaster>
+
+@{
+    ViewData["Title"] = "ReservationsByFlight";
+}
+
+<h1>Reservations By Flight</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PNRNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TravelDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfPassengers)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PNRNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TravelDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfPassengers)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<a asp-action="Index">Back to List</a>

@@ -1,0 +1,48 @@
+﻿@model EFAirlinesLibrary.Models.ReservationMaster
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ReservationMaster</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PNRNo" class="control-label"></label>
+                <input asp-for="PNRNo" class="form-control" />
+                <span asp-validation-for="PNRNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightNo" class="control-label"></label>
+                <input asp-for="FlightNo" class="form-control" />
+                <span asp-validation-for="FlightNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelDate" class="control-label"></label>
+                <input asp-for="TravelDate" class="form-control" />
+                <span asp-validation-for="TravelDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NoOfPassengers" class="control-label"></label>
+                <input asp-for="NoOfPassengers" class="form-control" />
+                <span asp-validation-for="NoOfPassengers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Passengers">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

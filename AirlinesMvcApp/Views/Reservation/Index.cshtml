@@ -1,0 +1,57 @@
+﻿@model IEnumerable<EFAirlinesLibrary.Models.ReservationMaster>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PNRNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TravelDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoOfPassengers)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PNRNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TravelDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfPassengers)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { pnr = item.PNRNo }) |
+                @Html.ActionLink("Details", "Details", new { pnr = item.PNRNo }) |
+                @Html.ActionLink("By Flight", "ReservationsByFlight", new { fno=item.FlightNo }) |
+                @Html.ActionLink("By Date", "ReservationsByDate", new { trdate=item.TravelDate}) |
+                @Html.ActionLink("By Flight and Date", "ReservationsByFlightAndDate", new { fno=item.FlightNo, trdate=item.TravelDate }) |
+                @Html.ActionLink("Delete", "Delete", new { pnr = item.PNRNo }) |
+                @Html.ActionLink("Passengers", "Passengers", new { pnr = item.PNRNo })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
